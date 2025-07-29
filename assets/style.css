@@ -1,0 +1,394 @@
+/* assets/style.css */
+
+/* ========================================= */
+/* 1. VARIÁVEIS CSS (Para personalização fácil) */
+/* ========================================= */
+:root {
+    --color-primary: #007bff;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-info: #17a2b8;
+
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+
+    --border-radius: 0.375rem; /* Padrão Bootstrap */
+}
+
+
+/* ========================================= */
+/* 2. ESTILOS GERAIS E DO TEMA */
+/* ========================================= */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem; /* Fonte base um pouco menor */
+    color: #333;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.5; /* Ajustado para maior compactação */
+    margin: 0;
+    padding: 0;
+}
+
+/* Reduzir o tamanho da fonte para todos os textos 'small' */
+.small {
+    font-size: 0.8rem !important;
+}
+
+/* Títulos H1-H6 com margem inferior reduzida por padrão */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-sm) !important;
+}
+
+.app-wrapper {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tema Escuro */
+.theme-dark {
+    --bs-body-bg: #212529;
+    --bs-body-color: #f8f9fa;
+    --bs-border-color: #495057;
+    --bs-card-bg: #343a40;
+    --bs-secondary: #adb5bd;
+    --bs-light: #495057;
+
+    color: var(--bs-body-color) !important;
+    background-color: var(--bs-body-bg) !important;
+}
+
+.theme-dark .panel,
+.theme-dark .tab-content-container,
+.theme-dark .card {
+    background-color: var(--bs-card-bg) !important;
+    border-color: var(--bs-border-color) !important;
+    color: var(--bs-body-color) !important;
+}
+
+.theme-dark .form-label,
+.theme-dark .panel-title,
+.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4, .theme-dark h5, .theme-dark h6 {
+    color: var(--bs-body-color) !important;
+}
+
+.theme-dark .text-muted {
+    color: var(--bs-secondary) !important;
+}
+
+
+/* ========================================= */
+/* 3. LAYOUT PRINCIPAL (Header, Sidebar, Main Content) */
+/* ========================================= */
+
+.header-row {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: var(--spacing-sm); /* Ajustado para sm */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+.theme-dark .header-row {
+    background-color: #343a40;
+    border-color: var(--bs-border-color);
+}
+.header-row .bi {
+    font-size: 1.1em; /* Tamanho dos ícones de tema um pouco menor */
+}
+
+.version-selection-row {
+    flex-shrink: 0;
+}
+
+.main-content-row {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - 100px); /* Altura mínima ajustada após header e seletores */
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    height: 100%;
+    padding: var(--spacing-sm); /* Ajustado padding da sidebar */
+}
+.theme-dark .sidebar {
+    background-color: #2b3035;
+    border-color: var(--bs-border-color);
+}
+
+.tab-content-container {
+    padding: var(--spacing-sm); /* Ajustado padding das abas */
+    background-color: var(--bs-body-bg);
+    border-radius: var(--border-radius);
+}
+
+
+/* ========================================= */
+/* 4. COMPONENTES REUTILIZÁVEIS (Painéis) */
+/* ========================================= */
+
+.panel {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm); /* Reduzido mb para painéis */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.theme-dark .panel {
+    background-color: var(--bs-card-bg);
+}
+
+.panel-title {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1em; /* Reduzido um pouco */
+    margin-bottom: var(--spacing-sm);
+}
+
+
+/* ========================================= */
+/* 5. SELETORES E BOTÕES (Inputs, Dropdowns, Buttons) */
+/* ========================================= */
+
+.dash-dropdown, .form-control {
+    border-radius: var(--border-radius);
+}
+.form-control-sm { /* Estilo para inputs pequenos (form-control-sm) */
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+.btn-sm { /* Estilo para botões pequenos (btn-sm) */
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+
+.filter-nav-buttons button,
+.validation-buttons button {
+    font-weight: 500;
+    border-radius: var(--border-radius);
+}
+
+/* Tema toggle (RadioItems) */
+.form-check-inline {
+    margin-right: var(--spacing-md);
+}
+.form-check-inline input {
+    margin-right: var(--spacing-xs);
+}
+
+
+/* ========================================= */
+/* 6. COMPONENTES ESPECÍFICOS DA APLICAÇÃO */
+/* ========================================= */
+
+/* --- Detalhes da Amostra (Card de Métricas) --- */
+#sample-info > div { /* O div retornado por build_info_text */
+    background-color: #f8f9fa; /* Fundo claro para o card de métricas */
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm); /* Padding reduzido */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.theme-dark #sample-info > div {
+    background-color: #2b3035; /* Fundo escuro para o card de métricas */
+    border-color: var(--bs-border-color);
+}
+#sample-info .row {
+    margin-bottom: var(--spacing-xs) !important; /* Espaçamento menor entre linhas de métricas */
+}
+#sample-info .text-muted.small {
+    font-size: 0.75rem !important; /* Ainda menor para labels */
+}
+#sample-info .fw-bold.text-start,
+#sample-info .fw-bold.text-end {
+    font-size: 0.9rem !important; /* Tamanho da métrica */
+}
+
+/* Contador de validação */
+.validation-counter {
+    font-size: 0.9em; /* Tamanho padrão, mas pode ser ajustado */
+    text-align: right; /* Alinhar à direita para métricas */
+    padding-right: var(--spacing-sm);
+    color: var(--bs-body-color);
+}
+.theme-dark .validation-counter {
+    color: var(--bs-body-color);
+}
+
+
+/* --- RadioItems personalizados (Definição/Motivo) --- */
+#definition-radio-container,
+#reason-radio-container {
+    border-radius: var(--border-radius);
+    background-color: var(--bs-body-bg);
+}
+.theme-dark #definition-radio-container,
+.theme-dark #reason-radio-container {
+    background-color: var(--bs-card-bg);
+}
+
+.list-group-item.list-group-item-action {
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.1); /* Linha divisória mais sutil */
+    padding-top: var(--spacing-xs); /* py-1 */
+    padding-bottom: var(--spacing-xs); /* py-1 */
+    padding-left: var(--spacing-sm); /* px-2 */
+    font-size: 0.85rem; /* Fonte ligeiramente menor para itens de radio */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.list-group-item.list-group-item-action:last-child {
+    border-bottom: none;
+}
+.list-group-item.list-group-item-action:hover {
+    background-color: #f0f0f0; /* Hover mais suave */
+}
+.theme-dark .list-group-item.list-group-item-action {
+    color: var(--bs-body-color);
+    background-color: var(--bs-card-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+}
+.theme-dark .list-group-item.list-group-item-action:hover {
+    background-color: #40464d; /* Hover mais escuro */
+}
+
+/* Esconde o radio button padrão, mantém apenas o label */
+.d-flex.flex-column .form-check-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* Estilo para quando o RadioItem é selecionado */
+.d-flex.flex-column .form-check-input:checked + .list-group-item {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+}
+.theme-dark .d-flex.flex-column .form-check-input:checked + .list-group-item {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Estilo de realce para mudanças (RadioItems) */
+.radio-selection-changed {
+    border: 2px solid var(--color-warning) !important;
+    box-shadow: 0 0 5px rgba(255,193,7,0.5);
+}
+.theme-dark .radio-selection-changed {
+    border: 2px solid #ffeb3b !important;
+    box-shadow: 0 0 5px rgba(255,235,59,0.7);
+}
+
+
+/* --- AgGrid (Tabela de Amostras) --- */
+.ag-theme-alpine {
+    --ag-foreground-color: var(--bs-body-color);
+    --ag-background-color: var(--bs-body-bg);
+    --ag-header-foreground-color: var(--bs-body-color);
+    --ag-header-background-color: var(--bs-light);
+    --ag-odd-row-background-color: var(--bs-light);
+    --ag-row-hover-background-color: #e2e6ea;
+    --ag-selected-row-background-color: #cfe2ff;
+    --ag-border-color: var(--bs-border-color);
+    --ag-row-border-color: var(--bs-border-color);
+    --ag-font-size: 13px; /* Fonte ligeiramente menor */
+    --ag-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+.theme-dark .ag-theme-alpine {
+    --ag-foreground-color: var(--bs-body-color);
+    --ag-background-color: var(--bs-card-bg);
+    --ag-header-foreground-color: var(--bs-body-color);
+    --ag-header-background-color: #495057;
+    --ag-odd-row-background-color: #343a40;
+    --ag-row-hover-background-color: #495057;
+    --ag-selected-row-background-color: #003060;
+    --ag-border-color: #495057;
+    --ag-row-border-color: #495057;
+}
+
+/* --- Dash Leaflet (Mapas) --- */
+.dl-map {
+    border-radius: var(--border-radius) !important;
+    border: 1px solid #ddd !important;
+}
+.theme-dark .dl-map {
+    border: 1px solid var(--bs-border-color) !important;
+}
+
+/* --- Plotly Graphs (NDVI, Histórico LULC, Progresso) --- */
+.modebar {
+    display: none !important; /* Força esconder a barra de ferramentas do Plotly */
+}
+/* Estilos para texto dentro dos gráficos Plotly para tema escuro */
+.theme-dark .plotly .infolayer .g-gtitle .gtitle,
+.theme-dark .plotly .xaxislayer-above .xtick .ytick,
+.theme-dark .plotly .yaxislayer-above .ytick .xtick,
+.theme-dark .plotly .gtitle .ytitle,
+.theme-dark .plotly .legendtext {
+    fill: var(--bs-body-color) !important;
+}
+.theme-dark .plotly .legend .bg {
+    fill: var(--bs-card-bg) !important;
+}
+/* Ajuste para legenda Plotly */
+.plotly .legend {
+    width: auto !important; /* Permite que a largura da legenda se ajuste ao conteúdo */
+    max-width: 100% !important; /* Impede que a legenda extrapole o container */
+    /* Você pode adicionar posicionamento como 'bottom center' ou 'top left' se preferir */
+    /* top: 100% !important; */ /* Coloca abaixo do gráfico */
+    /* left: 50% !important; */ /* Centraliza horizontalmente */
+    /* transform: translateX(-50%); */ /* Ajuste para centralizar */
+}
+
+
+/* --- Alertas de Feedback (Toast) --- */
+.toast-container {
+    z-index: 1050;
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    min-width: 250px;
+    max-width: 350px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.fade {
+    transition: opacity .15s linear;
+}
+.fade:not(.show) {
+    opacity: 0;
+}
+.show {
+    opacity: 1;
+}
+
+/* Spinner */
+.dash-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background-color: var(--bs-body-bg);
+    border-radius: var(--border-radius);
+}
+.theme-dark .dash-spinner {
+    background-color: var(--bs-card-bg);
+}
